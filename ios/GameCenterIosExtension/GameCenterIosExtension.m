@@ -107,6 +107,11 @@ DEFINE_ANE_FUNCTION( GC_getStoredPlayers )
     return [GC_handler getStoredPlayers:argv[0]];
 }
 
+DEFINE_ANE_FUNCTION( GC_resetAchievements )
+{
+    return [GC_handler resetAchievements];
+}
+
 void GameCenterContextInitializer( void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToSet, const FRENamedFunction** functionsToSet )
 {
     static FRENamedFunction functionMap[] = {
@@ -127,7 +132,8 @@ void GameCenterContextInitializer( void* extData, const uint8_t* ctxType, FRECon
         MAP_FUNCTION( GC_getStoredLocalPlayerScore, NULL ),
         MAP_FUNCTION( GC_getStoredPlayers, NULL ),
         MAP_FUNCTION( GC_getAchievements, NULL ),
-        MAP_FUNCTION( GC_getStoredAchievements, NULL )
+        MAP_FUNCTION( GC_getStoredAchievements, NULL ),
+        MAP_FUNCTION( GC_resetAchievements, NULL )
     };
     
 	*numFunctionsToSet = sizeof( functionMap ) / sizeof( FRENamedFunction );

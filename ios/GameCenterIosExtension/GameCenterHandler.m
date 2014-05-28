@@ -362,6 +362,17 @@
     return NULL;
 }
 
+- (FREObject)resetAchievements {
+    [GKAchievement resetAchievementsWithCompletionHandler:^(NSError *error) {
+        if (error != nil) {
+            DISPATCH_STATUS_EVENT(self.context, "", achievementsNotReset);
+        } else {
+            DISPATCH_STATUS_EVENT(self.context, "", achievementsReset);
+        }
+    }];
+    return NULL;
+}
+
 - (FREObject) getLocalPlayerFriends
 {
     GKLocalPlayer* localPlayer = [GKLocalPlayer localPlayer];

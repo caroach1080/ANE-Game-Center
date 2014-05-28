@@ -32,5 +32,6 @@
 - (FREObject) getStoredLeaderboard:(FREObject)asKey;
 - (FREObject) getStoredAchievements:(FREObject)asKey;
 - (FREObject) getStoredPlayers:(FREObject)asKey;
+- (FREObject) resetAchievements;
 
 @end
